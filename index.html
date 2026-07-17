@@ -1,0 +1,563 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>つくばフリースクール・コンシェルジュ｜不登校の親が、一人で迷わないために</title>
+<meta name="description" content="茨城県つくば市での、フリースクール・オルタナティブスクール選びの「静かな伴走」サービス。不登校のお子さんを持つ保護者の方の気持ちと情報の整理に寄り添います。初回相談無料。">
+<link rel="icon" type="image/png" href="images/logo2.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Zen+Old+Mincho:wght@400;700&family=Zen+Maru+Gothic:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --surface-white: #ffffff;
+    --off-white-mist: #fafafa;
+    --light-ice: #d9eef3;
+    --teal-primary: #3c9fb7;
+    --sky-teal: #68cde6;
+    --ink-black: #333333;
+    --mid-grey: #666666;
+    --steel-grey: #656d78;
+    --radius-card: 16px;
+    --radius-button: 8px;
+    --radius-pill: 25px;
+    --shadow-soft: 2px 4px 8px 0px rgba(0,0,0,0.1);
+    --shadow-medium: 2px 4px 11px 0px rgba(0,0,0,0.2);
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    font-family: "Zen Maru Gothic", sans-serif;
+    color: var(--ink-black);
+    background: var(--surface-white);
+    font-size: 16px;
+    line-height: 1.9;
+  }
+  h1, h2, h3, .mincho { font-family: "Zen Old Mincho", serif; }
+  header {
+    background: rgba(255,255,255,0.92);
+    padding: 16px 40px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    box-shadow: var(--shadow-soft);
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+  .logo { font-weight: 700; font-size: 15px; }
+  .logo small { display: block; font-size: 11px; color: var(--teal-primary); font-weight: 500; letter-spacing: 1px; }
+  nav a {
+    color: var(--ink-black);
+    text-decoration: none;
+    font-size: 13px;
+    margin-left: 24px;
+    font-weight: 500;
+  }
+  nav a:hover { color: var(--teal-primary); }
+  .hero {
+    position: relative;
+    min-height: 72vh;
+    background:
+      linear-gradient(rgba(255,255,255,0.3), rgba(255,255,255,0.3)),
+      url("images/hero.jpg") center bottom / cover no-repeat;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 60px 20px;
+  }
+  .hero-logo {
+    width: 76px; height: 76px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-bottom: 14px;
+    box-shadow: var(--shadow-soft);
+  }
+  .logo-wrap { display: flex; align-items: center; gap: 10px; }
+  .logo-img {
+    width: 42px; height: 42px;
+    border-radius: 50%;
+    object-fit: cover;
+    flex-shrink: 0;
+  }
+  .hero-card {
+    background: rgba(255,255,255,0.92);
+    padding: 48px 52px;
+    border-radius: var(--radius-card);
+    box-shadow: var(--shadow-medium);
+    text-align: center;
+    max-width: 620px;
+  }
+  .hero-card .site-name { font-size: 13px; color: var(--teal-primary); font-weight: 700; letter-spacing: 2px; margin-bottom: 18px; }
+  .hero-card h1 {
+    font-size: 32px;
+    font-weight: 700;
+    letter-spacing: 3px;
+    line-height: 1.7;
+    margin-bottom: 18px;
+  }
+  .hero-card p { color: var(--mid-grey); font-size: 14.5px; }
+  .hero-card .btn { margin-top: 28px; }
+  .icon-row {
+    display: flex;
+    gap: 28px;
+    justify-content: center;
+    padding: 36px 20px;
+    background: var(--surface-white);
+    flex-wrap: wrap;
+  }
+  .icon-item { text-align: center; font-size: 12px; color: var(--mid-grey); text-decoration: none; }
+  .icon-item:hover .icon-circle { background: var(--teal-primary); color: #fff; }
+  .icon-circle {
+    width: 60px; height: 60px;
+    border-radius: 50%;
+    background: var(--light-ice);
+    color: var(--teal-primary);
+    display: flex; align-items: center; justify-content: center;
+    margin: 0 auto 8px;
+    box-shadow: var(--shadow-soft);
+  }
+  .icon-circle svg { width: 26px; height: 26px; }
+  section { padding: 70px 20px; scroll-margin-top: 90px; }
+  .inner { max-width: 900px; margin: 0 auto; }
+  .alt { background: var(--off-white-mist); }
+  h2.section-title {
+    text-align: center;
+    font-size: 24px;
+    letter-spacing: 4px;
+    margin-bottom: 8px;
+  }
+  .section-en {
+    text-align: center;
+    font-size: 12px;
+    color: var(--teal-primary);
+    letter-spacing: 2px;
+    margin-bottom: 14px;
+    font-weight: 700;
+  }
+  .section-lead { text-align: center; color: var(--mid-grey); font-size: 14px; margin-bottom: 44px; }
+  /* こんな方へ */
+  .worry-cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 18px; max-width: 760px; margin: 0 auto; }
+  .worry {
+    background: var(--surface-white);
+    border-radius: var(--radius-card);
+    box-shadow: var(--shadow-soft);
+    padding: 22px 24px;
+    font-size: 14.5px;
+    display: flex;
+    gap: 12px;
+    align-items: flex-start;
+  }
+  .worry::before { content: "✔"; color: var(--teal-primary); font-weight: 700; }
+  .empathy {
+    background: var(--light-ice);
+    text-align: center;
+  }
+  .empathy h2 { font-size: 21px; letter-spacing: 2px; line-height: 2; margin-bottom: 28px; }
+  .empathy p { max-width: 640px; margin: 0 auto; font-size: 14.5px; color: #444; text-align: left; }
+  /* できること・しないこと */
+  .cards { display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px; max-width: 760px; margin: 0 auto; }
+  .card {
+    background: var(--surface-white);
+    border-radius: var(--radius-card);
+    box-shadow: var(--shadow-soft);
+    padding: 28px 24px;
+    text-align: center;
+  }
+  .card .tag {
+    display: inline-block;
+    background: var(--light-ice);
+    color: var(--teal-primary);
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    padding: 3px 12px;
+    border-radius: 6px;
+    margin-bottom: 12px;
+  }
+  .card h4 { font-size: 15.5px; margin-bottom: 10px; }
+  .card p { font-size: 13.5px; color: var(--mid-grey); text-align: left; }
+  .dont .card { background: var(--off-white-mist); box-shadow: none; border: 1px solid #e2e2e2; }
+  .dont .card .tag { background: #eee; color: var(--steel-grey); }
+  /* 流れ・料金 */
+  .steps { max-width: 720px; margin: 0 auto; }
+  .step {
+    display: flex; gap: 22px; align-items: flex-start;
+    background: var(--surface-white);
+    border-radius: var(--radius-card);
+    box-shadow: var(--shadow-soft);
+    padding: 28px 30px;
+    margin-bottom: 20px;
+  }
+  .step-num {
+    background: var(--teal-primary);
+    color: #fff;
+    width: 42px; height: 42px;
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    font-weight: 700;
+    flex-shrink: 0;
+    font-size: 15px;
+  }
+  .step h4 { font-size: 16px; margin-bottom: 8px; font-family: "Zen Maru Gothic", sans-serif; font-weight: 700; }
+  .step h4 .price { color: var(--teal-primary); }
+  .step p, .step li { font-size: 13.8px; color: #444; line-height: 1.95; }
+  .step ul { margin: 8px 0 8px 20px; }
+  .step .subhead { font-weight: 700; color: var(--ink-black); margin-top: 10px; }
+  /* プロフィール */
+  .profile { display: flex; gap: 40px; align-items: flex-start; flex-wrap: wrap; justify-content: center; }
+  .profile-photo {
+    width: 180px; height: 180px;
+    border-radius: 50%;
+    background: var(--light-ice);
+    object-fit: cover;
+    flex-shrink: 0;
+    border: 4px solid var(--surface-white);
+    box-shadow: var(--shadow-soft);
+  }
+  .profile-text { flex: 1; min-width: 280px; }
+  .profile-text h3 { font-size: 22px; margin-bottom: 6px; letter-spacing: 3px; }
+  .profile-text .role { font-size: 12px; color: var(--teal-primary); font-weight: 700; letter-spacing: 1px; margin-bottom: 16px; }
+  .profile-text p { font-size: 14.5px; }
+  /* note */
+  .note-box {
+    max-width: 720px;
+    margin: 0 auto;
+    background: var(--surface-white);
+    border-radius: var(--radius-card);
+    box-shadow: var(--shadow-soft);
+    padding: 40px 44px;
+    text-align: center;
+  }
+  .note-box p { font-size: 14.5px; text-align: left; margin-bottom: 12px; }
+  .note-chips { display: flex; flex-wrap: wrap; gap: 10px; justify-content: center; margin: 20px 0 26px; }
+  .note-chips span {
+    background: var(--light-ice);
+    color: var(--teal-primary);
+    font-size: 13px;
+    font-weight: 700;
+    padding: 6px 16px;
+    border-radius: var(--radius-pill);
+  }
+  /* 活動 */
+  .history { list-style: none; max-width: 720px; margin: 0 auto; }
+  .history > li {
+    background: var(--surface-white);
+    border-radius: var(--radius-card);
+    box-shadow: var(--shadow-soft);
+    padding: 18px 24px;
+    margin-bottom: 14px;
+    font-size: 14.5px;
+    font-weight: 500;
+  }
+  .history .year {
+    display: inline-block;
+    background: var(--light-ice);
+    color: var(--teal-primary);
+    font-size: 12px;
+    font-weight: 700;
+    padding: 2px 12px;
+    border-radius: 6px;
+    margin-right: 10px;
+  }
+  .history .sub { display: block; font-size: 13px; color: var(--mid-grey); font-weight: 400; margin-top: 4px; }
+  /* CTA */
+  .cta { background: var(--light-ice); text-align: center; }
+  .cta h2 { font-size: 23px; letter-spacing: 3px; margin-bottom: 14px; line-height: 1.9; }
+  .cta p { color: var(--mid-grey); margin-bottom: 30px; font-size: 13.5px; }
+  .btn {
+    display: inline-block;
+    background: var(--teal-primary);
+    color: #ffffff;
+    text-decoration: none;
+    font-size: 15px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    padding: 14px 44px;
+    border-radius: var(--radius-pill);
+    box-shadow: var(--shadow-medium);
+  }
+  .btn.ghost {
+    background: var(--surface-white);
+    color: var(--teal-primary);
+    border: 2px solid var(--teal-primary);
+    box-shadow: none;
+  }
+  footer {
+    text-align: center;
+    padding: 40px 20px;
+    font-size: 12px;
+    color: var(--mid-grey);
+    background: var(--surface-white);
+    line-height: 2.1;
+  }
+  @media (max-width: 640px) {
+    header { padding: 12px 16px; }
+    nav a { margin-left: 12px; font-size: 11px; }
+    .hero-card { padding: 32px 24px; }
+    .hero-card h1 { font-size: 23px; }
+    section { padding: 48px 16px; }
+    .cards { grid-template-columns: 1fr; }
+    .step { flex-direction: column; gap: 10px; }
+  }
+</style>
+</head>
+<body>
+<header>
+  <div class="logo-wrap">
+    <img class="logo-img" src="images/logo2.png" alt="">
+    <div class="logo">
+      つくばフリースクール・コンシェルジュ
+      <small>― 不登校の親が、一人で迷わないために ―</small>
+    </div>
+  </div>
+  <nav>
+    <a href="#dekiru">サービス</a>
+    <a href="#ryoukin">流れ・料金</a>
+    <a href="#profile">プロフィール</a>
+    <a href="#contact">ご相談</a>
+  </nav>
+</header>
+
+<div class="hero">
+  <div class="hero-card">
+    <img class="hero-logo" src="images/logo2.png" alt="つくばフリースクール・コンシェルジュのロゴ">
+    <h1>不登校の親が、<br>一人で迷わないために</h1>
+    <p>茨城県つくば市での、フリースクール・オルタナティブスクール選びの「静かな伴走」サービスです。</p>
+    <a class="btn" href="https://lin.ee/D98vZ96" target="_blank" rel="noopener">公式LINEで相談する</a>
+  </div>
+</div>
+
+<div class="icon-row">
+  <a class="icon-item" href="https://lin.ee/D98vZ96" target="_blank" rel="noopener">
+    <div class="icon-circle">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M21 11.2c0 4-4 7.2-9 7.2-.9 0-1.8-.1-2.6-.3L5 20l1-2.9C4.2 15.8 3 13.6 3 11.2 3 7.2 7 4 12 4s9 3.2 9 7.2z"/>
+      </svg>
+    </div>公式LINE
+  </a>
+  <a class="icon-item" href="https://www.instagram.com/msproject.tsukuba" target="_blank" rel="noopener">
+    <div class="icon-circle">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+        <rect x="3.5" y="3.5" width="17" height="17" rx="4.5"/>
+        <circle cx="12" cy="12" r="4"/>
+        <circle cx="17.2" cy="6.8" r="0.6" fill="currentColor"/>
+      </svg>
+    </div>Instagram
+  </a>
+  <a class="icon-item" href="https://x.com/tfc298" target="_blank" rel="noopener">
+    <div class="icon-circle">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round">
+        <path d="M5 5l14 14M19 5L5 19"/>
+      </svg>
+    </div>X
+  </a>
+  <a class="icon-item" href="https://note.com/tfc298" target="_blank" rel="noopener">
+    <div class="icon-circle">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M16.5 4.5l3 3L8 19l-4 1 1-4L16.5 4.5z"/>
+      </svg>
+    </div>note
+  </a>
+</div>
+
+<section class="alt">
+  <div class="inner">
+    <h2 class="section-title">こんな方へ</h2>
+    <div class="section-en">FOR YOU</div>
+    <div class="worry-cards">
+      <div class="worry">情報が多すぎて、何から始めればいいか分からない</div>
+      <div class="worry">見学に行ったけれど、かえって迷いが増えてしまった</div>
+      <div class="worry">一人で決めることに、不安や重さを感じている</div>
+      <div class="worry">誰かに話を聞いてほしいけれど、相手が見つからない</div>
+    </div>
+  </div>
+</section>
+
+<section class="empathy">
+  <div class="inner">
+    <h2>「学校ではない選択」をする時点で、<br>親の気力は限界に近いのです。</h2>
+    <p>不登校の親御さんは、すでに精神的に疲弊しています。「子どもが学校に行かない」という現状を受け入れ、別の道を探し始めた時点で、多くのエネルギーを使い果たしています。しかし、そこからさらに「情報の海」に飛び込み、比較検討を行わなければならないのが現実です。</p>
+  </div>
+</section>
+
+<section id="dekiru">
+  <div class="inner">
+    <h2 class="section-title">このサービスで「できること」</h2>
+    <div class="section-en">SERVICE</div>
+    <div class="section-lead">答えを提示するのではなく、<br>一緒に考え、整理する過程に寄り添います。</div>
+    <div class="cards">
+      <div class="card">
+        <div class="tag">01</div>
+        <h4>気持ちの整理</h4>
+        <p>あなたの今の状況や気持ちを、ゆっくり一緒に整理します。</p>
+      </div>
+      <div class="card">
+        <div class="tag">02</div>
+        <h4>情報の整理</h4>
+        <p>必要に応じて、選択肢や考え方を一緒に整理します。</p>
+      </div>
+      <div class="card">
+        <div class="tag">03</div>
+        <h4>見学・問い合わせのサポート</h4>
+        <p>スクールへの問い合わせ、見学の段取りをお手伝いします。</p>
+      </div>
+      <div class="card">
+        <div class="tag">04</div>
+        <h4>寄り添う伴走</h4>
+        <p>迷いや不安を言葉にする過程に、そばで寄り添います。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="alt dont">
+  <div class="inner">
+    <h2 class="section-title">このサービスで「しないこと」</h2>
+    <div class="section-en">NOT INCLUDED</div>
+    <div class="section-lead">サービスの範囲を明確にすることで、<br>安心してご利用いただけます。</div>
+    <div class="cards">
+      <div class="card">
+        <div class="tag">✕</div>
+        <h4>再登校支援・不登校の解決</h4>
+        <p>学校への復帰を目的としたサポートは行っていません。</p>
+      </div>
+      <div class="card">
+        <div class="tag">✕</div>
+        <h4>特定のスクールへの誘導</h4>
+        <p>特定の団体から紹介料や報酬を受け取ることはありません。中立性を大切にしながら、お話を伺います。</p>
+      </div>
+      <div class="card">
+        <div class="tag">✕</div>
+        <h4>お子さんへの直接支援</h4>
+        <p>あくまで「親」の意思決定を支えます。</p>
+      </div>
+      <div class="card">
+        <div class="tag">✕</div>
+        <h4>行政・医療としての対応</h4>
+        <p>個人による伴走型サービスです。公的・医療的窓口ではありません。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="ryoukin">
+  <div class="inner">
+    <h2 class="section-title">利用の流れ・料金</h2>
+    <div class="section-en">FLOW &amp; PRICE</div>
+    <div class="section-lead">あなたのご家庭の状況や気持ちに合わせて、<br>無理のない形で相談を進めていきます。</div>
+    <div class="steps">
+      <div class="step">
+        <div class="step-num">1</div>
+        <div>
+          <h4>公式LINEでご連絡</h4>
+          <p>まずは公式LINEからご連絡ください。簡単な自己紹介と、今困っていることをお聞かせください。LINEでのやりとりは無料です。必要に応じて、こちらからオンライン相談をご案内します。（ご希望があれば、すぐに始めることもできます。）</p>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-num">2</div>
+        <div>
+          <h4>初回無料相談（30分）</h4>
+          <p>Zoom または Teams を使用したオンライン相談を行います。テレビ会議が難しい場合は、公式LINEの通話機能による電話相談も可能です。お子さんの状況やご家庭の希望、通学範囲などを伺いながら、状況を整理し、考え方や選択肢をご提案します。</p>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-num">3</div>
+        <div>
+          <h4>2回目以降のご相談 <span class="price">（5,000円／2週間の伴走）</span></h4>
+          <p>初回の無料相談の後、</p>
+          <ul>
+            <li>自分だけでは、予約や見学への気持ちが整わなかった</li>
+            <li>見学してみたが、別の課題が見えてきた</li>
+            <li>他のフリースクールについても、検討・相談したい</li>
+          </ul>
+          <p>といった場合には、2回目以降のご相談から有料となり、2週間を1単位とした「伴走サポート」が始まります。</p>
+          <p class="subhead">■ 伴走サポートに含まれる内容</p>
+          <ul>
+            <li>1時間の対面相談（早朝・夜間はオンライン）※見学同行に変更も可</li>
+            <li>LINEでのやりとり（原則24時間以内に返信）</li>
+            <li>状況に応じて、2週間ごとの延長も可能です</li>
+          </ul>
+          <p class="subhead">■ 追加オプション</p>
+          <p>対面相談・見学同行を追加する場合（1時間）＋3,000円</p>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-num">4</div>
+        <div>
+          <h4>その後のご相談</h4>
+          <p>最初の伴走サポートが終わったあとも、状況の変化や、新たな迷いが出てきた場合には、あらためてご相談いただくことができます。具体的な検討や判断を伴うご相談は有料でのご案内となります。一定期間が空き、状況整理から行う場合には、あらためて初回無料相談（30分）をご利用いただくことも可能です。</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="alt" id="profile">
+  <div class="inner">
+    <h2 class="section-title">コンシェルジュ紹介</h2>
+    <div class="section-en">PROFILE</div>
+    <div class="profile">
+      <img class="profile-photo" src="images/profile.jpg" alt="西脇順子の写真">
+      <div class="profile-text">
+        <h3>西脇 順子</h3>
+        <div class="role">つくばフリースクール・コンシェルジュ</div>
+        <p>1985年生まれ、つくば市春日に住んでいます。子どもが幼稚園の頃から行き渋りがあり、小1の1学期から本格的な不登校に。子どもをフリースクールに通わせるため、2023年に当時住んでいた茨城県鹿行地域からつくば市へ転居しました。現在、2人の子どもがそれぞれ別のフリースクールに通っています。</p>
+        <p style="margin-top:14px;">フリースクールの情報を集め、見学し、「決める」という行為の重さで、心の調子を崩した経験があります。だからこそ、答えを出す人ではなく、迷いを言葉にして整理する伴走者でありたいと考えています。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="note">
+  <div class="inner">
+    <h2 class="section-title">note のご案内</h2>
+    <div class="section-en">BLOG</div>
+    <div class="note-box">
+      <p>2026年2月より、noteを始めました。フリースクール探しで迷う親御さんのために、少しずつ記事を書いています。</p>
+      <div class="note-chips">
+        <span>フリースクールの選び方</span>
+        <span>費用のリアル</span>
+        <span>行政の無料サービスの活用法</span>
+        <span>親として迷ったときの考え方</span>
+      </div>
+      <p>「いきなり相談するのは少しハードルが高い」——そんな方にも、まずは無料で読める情報として、お役に立てたら嬉しいです。</p>
+      <a class="btn ghost" href="https://note.com/tfc298" target="_blank" rel="noopener" style="margin-top:10px;">無料で読めるnoteはこちら</a>
+    </div>
+  </div>
+</section>
+
+<section class="alt">
+  <div class="inner">
+    <h2 class="section-title">これまでの活動</h2>
+    <div class="section-en">HISTORY</div>
+    <ul class="history">
+      <li><span class="year">2019〜2023</span>整理収納アドバイザーとして個人事業を運営
+        <span class="sub">子育て中の母親を対象に、お片付けサポートやセミナー講師を担当。状況を整理しながら解決策を一緒に考える伴走型の支援を実施。</span></li>
+      <li><span class="year">2022〜</span>「不登校・多様な学びネットワーク茨城」にてボランティア活動
+        <span class="sub">100件以上ある不登校支援団体の情報整理、ネットワークサイトへの団体情報掲載を担当。</span></li>
+      <li><span class="year">2025</span>「まなびつくば～多様な学びと育ちの会～」不登校支援冊子のデザインを担当
+        <span class="sub">『子どもが「学校に行きたくない」と言った時に読む本』ほか。</span></li>
+      <li><span class="year">2025</span>クラウドファンディング「つくばのフリースクールにお片付け支援を届けたい！」を実施</li>
+      <li><span class="year">2025〜</span>つくば市内のフリースクールにて、アルバイトとして現場に関わる</li>
+      <li><span class="year">2026〜</span>「つくばフリースクール連携協議会」事務局を担当
+        <span class="sub">フリースクール同士が顔の見える関係を築くための連携・調整を担当。</span></li>
+    </ul>
+  </div>
+</section>
+
+<section class="cta" id="contact">
+  <h2>一人で悩まず、<br>よければ私に相談してください。</h2>
+  <p>ご相談は公式LINEから受け付けています。</p>
+  <a class="btn" href="https://lin.ee/D98vZ96" target="_blank" rel="noopener">公式LINEで相談する</a>
+</section>
+
+<footer>
+  このサービスは、つくば市などの行政や<br>「不登校・多様な学びネットワーク茨城」の窓口ではありません。<br>
+  個人による伴走型サービスです。<br>
+  フリースクール関係者の方、取材等のお問い合わせは msproject.tsukuba@gmail.com まで。<br><br>
+  ©2026 つくばフリースクール・コンシェルジュ
+</footer>
+</body>
+</html>

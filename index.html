@@ -305,6 +305,36 @@
     background: var(--surface-white);
     line-height: 2.1;
   }
+  /* 浮遊LINE相談ボタン */
+  .float-cta {
+    position: fixed;
+    right: 16px;
+    bottom: calc(16px + env(safe-area-inset-bottom, 0px));
+    z-index: 50;
+    background: #3c9fb7;
+    color: #ffffff;
+    text-decoration: none;
+    border-radius: var(--radius-pill);
+    padding: 10px 24px;
+    text-align: center;
+    box-shadow: var(--shadow-medium);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    line-height: 1.35;
+    opacity: 0;
+    transform: translateY(14px);
+    pointer-events: none;
+    transition: opacity 0.5s ease-out, transform 0.5s ease-out;
+  }
+  .float-cta.show {
+    opacity: 1;
+    transform: none;
+    pointer-events: auto;
+  }
+  .float-cta-main { font-size: 15px; font-weight: 700; letter-spacing: 1px; }
+  .float-cta-sub { font-size: 11px; }
+
   /* ふわっと表示アニメーション */
   @media (prefers-reduced-motion: no-preference) {
     .hero-card {
@@ -348,10 +378,9 @@
     </div>
   </a>
   <nav>
-    <a href="#dekiru">サービス</a>
-    <a href="#ryoukin">流れ・料金</a>
+    <a href="#dekiru">サービス内容</a>
     <a href="#profile">プロフィール</a>
-    <a href="#contact">ご相談</a>
+    <a href="#ryoukin">流れ・料金</a>
   </nav>
 </header>
 
@@ -477,6 +506,45 @@
   </div>
 </section>
 
+<section id="profile">
+  <div class="inner">
+    <h2 class="section-title">コンシェルジュ紹介</h2>
+    <div class="section-en">PROFILE</div>
+    <div class="profile">
+      <img class="profile-photo" src="images/profile.jpg" alt="西脇順子の写真">
+      <div class="profile-text">
+        <h3>西脇 順子</h3>
+        <div class="role">つくばフリースクール・コンシェルジュ</div>
+        <p>1985年生まれ、つくば市春日に住んでいます。子どもが幼稚園の頃から行き渋りがあり、小1の1学期から本格的な不登校に。子どもをフリースクールに通わせるため、2023年に当時住んでいた茨城県鹿行地域からつくば市へ転居しました。現在、2人の子どもがそれぞれ別のフリースクールに通っています。</p>
+        <p style="margin-top:14px;">フリースクールの情報を集め、見学し、「決める」という行為の重さで、心の調子を崩した経験があります。だからこそ、答えを出す人ではなく、迷いを言葉にして整理する伴走者でありたいと考えています。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="alt">
+  <div class="inner">
+    <h2 class="section-title">これまでの活動</h2>
+    <div class="section-en">HISTORY</div>
+    <ul class="history">
+      <li><span class="year">2019〜2023</span>整理収納アドバイザーとして個人事業を運営
+        <span class="sub">主に子育て中の母親を対象に、訪問型のお片付けサポートやセミナーを開催。状況を整理しながら解決策を一緒に考える伴走型の支援を実施。</span></li>
+      <li><span class="year">2022〜</span>「不登校・多様な学びネットワーク茨城」にてボランティア活動
+        <span class="sub">120件以上ある不登校支援団体の情報整理、公式サイトへの団体情報掲載などを担当している。2026年度には世話人に。</span>
+        <a class="ext-link" href="https://ibaraki-futoukou.net/" target="_blank" rel="noopener">ネットワークサイトはこちら →</a></li>
+      <li><span class="year">2025</span>「まなびつくば～多様な学びと育ちの会～」不登校支援冊子のデザインを担当
+        <span class="sub">『子どもが「学校に行きたくない」と言った時に読む本』ほか。</span>
+        <a class="ext-link" href="https://manabi298.jimdofree.com/" target="_blank" rel="noopener">まなびつくばのサイトはこちら →</a></li>
+      <li><span class="year">2025</span>クラウドファンディング「つくばのフリースクールにお片付け支援を届けたい！」を実施
+        <a class="ext-link" href="https://camp-fire.jp/projects/911035/view" target="_blank" rel="noopener">クラウドファンディングの詳細はこちら →</a></li>
+      <li><span class="year">2025〜</span>つくば市内のフリースクールにて、アルバイトとして現場に関わる</li>
+      <li><span class="year">2026〜</span>「つくばフリースクール等連携協議会」事務局を担当
+        <span class="sub">フリースクール同士が顔の見える関係を築くための連携・調整を行い、毎月の会合の段取りや情報発信を行っている。</span>
+        <a class="ext-link" href="https://298freeschool-kyougikai.my.canva.site/" target="_blank" rel="noopener">協議会サイトはこちら →</a></li>
+    </ul>
+  </div>
+</section>
+
 <section id="ryoukin">
   <div class="inner">
     <h2 class="section-title">利用の流れ・料金</h2>
@@ -529,23 +597,7 @@
   </div>
 </section>
 
-<section class="alt" id="profile">
-  <div class="inner">
-    <h2 class="section-title">コンシェルジュ紹介</h2>
-    <div class="section-en">PROFILE</div>
-    <div class="profile">
-      <img class="profile-photo" src="images/profile.jpg" alt="西脇順子の写真">
-      <div class="profile-text">
-        <h3>西脇 順子</h3>
-        <div class="role">つくばフリースクール・コンシェルジュ</div>
-        <p>1985年生まれ、つくば市春日に住んでいます。子どもが幼稚園の頃から行き渋りがあり、小1の1学期から本格的な不登校に。子どもをフリースクールに通わせるため、2023年に当時住んでいた茨城県鹿行地域からつくば市へ転居しました。現在、2人の子どもがそれぞれ別のフリースクールに通っています。</p>
-        <p style="margin-top:14px;">フリースクールの情報を集め、見学し、「決める」という行為の重さで、心の調子を崩した経験があります。だからこそ、答えを出す人ではなく、迷いを言葉にして整理する伴走者でありたいと考えています。</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<section id="note">
+<section class="alt" id="note">
   <div class="inner">
     <h2 class="section-title">note のご案内</h2>
     <div class="section-en">BLOG</div>
@@ -562,29 +614,6 @@
   </div>
 </section>
 
-<section class="alt">
-  <div class="inner">
-    <h2 class="section-title">これまでの活動</h2>
-    <div class="section-en">HISTORY</div>
-    <ul class="history">
-      <li><span class="year">2019〜2023</span>整理収納アドバイザーとして個人事業を運営
-        <span class="sub">主に子育て中の母親を対象に、訪問型のお片付けサポートやセミナーを開催。状況を整理しながら解決策を一緒に考える伴走型の支援を実施。</span></li>
-      <li><span class="year">2022〜</span>「不登校・多様な学びネットワーク茨城」にてボランティア活動
-        <span class="sub">120件以上ある不登校支援団体の情報整理、公式サイトへの団体情報掲載などを担当している。2026年度には世話人に。</span>
-        <a class="ext-link" href="https://ibaraki-futoukou.net/" target="_blank" rel="noopener">ネットワークサイトはこちら →</a></li>
-      <li><span class="year">2025</span>「まなびつくば～多様な学びと育ちの会～」不登校支援冊子のデザインを担当
-        <span class="sub">『子どもが「学校に行きたくない」と言った時に読む本』ほか。</span>
-        <a class="ext-link" href="https://manabi298.jimdofree.com/" target="_blank" rel="noopener">まなびつくばのサイトはこちら →</a></li>
-      <li><span class="year">2025</span>クラウドファンディング「つくばのフリースクールにお片付け支援を届けたい！」を実施
-        <a class="ext-link" href="https://camp-fire.jp/projects/911035/view" target="_blank" rel="noopener">クラウドファンディングの詳細はこちら →</a></li>
-      <li><span class="year">2025〜</span>つくば市内のフリースクールにて、アルバイトとして現場に関わる</li>
-      <li><span class="year">2026〜</span>「つくばフリースクール等連携協議会」事務局を担当
-        <span class="sub">フリースクール同士が顔の見える関係を築くための連携・調整を行い、毎月の会合の段取りや情報発信を行っている。</span>
-        <a class="ext-link" href="https://298freeschool-kyougikai.my.canva.site/" target="_blank" rel="noopener">協議会サイトはこちら →</a></li>
-    </ul>
-  </div>
-</section>
-
 <section class="cta" id="contact">
   <h2>一人で悩まず、<br>よければ私に相談してください。</h2>
   <p>ご相談は公式LINEから受け付けています。</p>
@@ -598,8 +627,31 @@
   ©2026 つくばフリースクール・コンシェルジュ
 </footer>
 
+<a class="float-cta" id="floatCta" href="https://lin.ee/D98vZ96" target="_blank" rel="noopener" aria-label="LINEで相談する（無料）">
+  <span class="float-cta-main">LINE相談</span>
+  <span class="float-cta-sub">（無料）</span>
+</a>
+
 <script>
 (function () {
+  var floatCta = document.getElementById('floatCta');
+  var heroEl = document.querySelector('.hero');
+  var contactEl = document.getElementById('contact');
+  if (floatCta && heroEl && contactEl && 'IntersectionObserver' in window) {
+    var heroVisible = true;
+    var contactVisible = false;
+    var updateCta = function () {
+      floatCta.classList.toggle('show', !heroVisible && !contactVisible);
+    };
+    new IntersectionObserver(function (es) {
+      es.forEach(function (e) { heroVisible = e.isIntersecting; });
+      updateCta();
+    }, { threshold: 0.15 }).observe(heroEl);
+    new IntersectionObserver(function (es) {
+      es.forEach(function (e) { contactVisible = e.isIntersecting; });
+      updateCta();
+    }, { threshold: 0.15 }).observe(contactEl);
+  }
   var logoLink = document.querySelector('.logo-wrap');
   if (logoLink) {
     logoLink.addEventListener('click', function (e) {

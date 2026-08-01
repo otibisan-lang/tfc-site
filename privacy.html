@@ -135,7 +135,7 @@
   <div class="policy-section">
     <h2>7. お問い合わせ窓口</h2>
     <p>M&amp;Sプロジェクト　西脇 順子<br>
-    メール：msproject.tsukuba@gmail.com</p>
+    メール：<a class="mail-protect" data-u="bXNwcm9qZWN0LnRzdWt1YmE=" data-d="Z21haWwuY29t" href="#" style="color:var(--teal-primary);">メールアドレスを表示</a></p>
   </div>
 
   <p class="policy-date">制定日：2026年8月1日</p>
@@ -146,6 +146,13 @@
 <footer>
   ©2026 つくばフリースクール・コンシェルジュ（M&amp;Sプロジェクト）
 </footer>
+<script>
+document.querySelectorAll('.mail-protect').forEach(function (el) {
+  var email = atob(el.dataset.u) + '@' + atob(el.dataset.d);
+  el.textContent = email;
+  el.href = 'mailto:' + email;
+});
+</script>
 <!-- Cloudflare Web Analytics --><script type='module' src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "a1219fd1cba24f468692a77711a6861d"}'></script><!-- End Cloudflare Web Analytics -->
 </body>
 </html>

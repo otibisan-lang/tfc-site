@@ -95,7 +95,7 @@
     <tr><th>運営統括責任者</th><td>西脇 順子</td></tr>
     <tr><th>所在地</th><td>茨城県つくば市春日（番地はご請求いただき次第、遅滞なく開示いたします）</td></tr>
     <tr><th>電話番号</th><td>ご請求いただき次第、遅滞なく開示いたします。</td></tr>
-    <tr><th>メールアドレス</th><td>msproject.tsukuba@gmail.com</td></tr>
+    <tr><th>メールアドレス</th><td><a class="mail-protect" data-u="bXNwcm9qZWN0LnRzdWt1YmE=" data-d="Z21haWwuY29t" href="#" style="color:var(--teal-primary);">メールアドレスを表示</a></td></tr>
     <tr><th>提供サービス</th><td>つくばフリースクール・コンシェルジュ（フリースクール・オルタナティブスクール選びの伴走相談サービス）</td></tr>
     <tr><th>サービス価格</th><td>初回相談：無料（30分）<br>2回目以降：5,000円／2週間（伴走サポート）<br>対面相談・見学同行の追加：＋3,000円／1時間<br>※詳細は<a href="index.html#ryoukin" style="color:var(--teal-primary);">「利用の流れ・料金」</a>をご覧ください。</td></tr>
     <tr><th>上記以外の必要料金</th><td>対面相談・見学同行で遠方への訪問となる場合、別途交通費をご請求することがあります。事前にご案内し、ご了承いただいた上で対応します。</td></tr>
@@ -111,6 +111,13 @@
 <footer>
   ©2026 つくばフリースクール・コンシェルジュ（M&amp;Sプロジェクト）
 </footer>
+<script>
+document.querySelectorAll('.mail-protect').forEach(function (el) {
+  var email = atob(el.dataset.u) + '@' + atob(el.dataset.d);
+  el.textContent = email;
+  el.href = 'mailto:' + email;
+});
+</script>
 <!-- Cloudflare Web Analytics --><script type='module' src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "a1219fd1cba24f468692a77711a6861d"}'></script><!-- End Cloudflare Web Analytics -->
 </body>
 </html>

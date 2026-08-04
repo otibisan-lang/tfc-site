@@ -1,0 +1,486 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>案内チラシ｜つくばフリースクール・コンシェルジュ</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Zen+Old+Mincho:wght@400;700&family=Zen+Maru+Gothic:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --surface-white: #ffffff;
+    --off-white-mist: #fafafa;
+    --cream: #f4f3ef;
+    --light-ice: #d9eef3;
+    --teal-primary: #3c9fb7;
+    --teal-deep: #1f6b7e;
+    --ink-black: #333333;
+    --mid-grey: #666666;
+    --radius-card: 9px;
+    --radius-pill: 20px;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html, body {
+    background: #ddd;
+    font-family: "Zen Maru Gothic", sans-serif;
+    color: var(--ink-black);
+  }
+  h1, h2, h3, .mincho { font-family: "Zen Old Mincho", serif; }
+  @page { size: A5; margin: 0; }
+  .page {
+    width: 148mm;
+    height: 210mm;
+    margin: 10mm auto;
+    background: var(--surface-white);
+    padding: 8mm 9mm;
+    display: flex;
+    flex-direction: column;
+    gap: 2.6mm;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.15);
+    overflow: hidden;
+  }
+  .page-label {
+    max-width: 148mm;
+    margin: 0 auto;
+    font-size: 11px;
+    color: #888;
+    padding: 2mm 1mm;
+  }
+  /* 共通セクション見出し */
+  .f-section-title {
+    font-size: 11.5px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-align: center;
+    color: var(--ink-black);
+    margin-bottom: 2.4mm;
+  }
+
+  /* ===== 表面 ===== */
+  .f-topbar {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 2.6mm;
+    background: var(--cream);
+    border-radius: var(--radius-card);
+    padding: 2.4mm 3mm;
+  }
+  .f-logo { width: 11mm; height: 11mm; object-fit: contain; flex-shrink: 0; }
+  .f-sitename { font-size: 12.5px; font-weight: 700; letter-spacing: 0.6px; color: var(--teal-deep); }
+
+  .f-catch {
+    text-align: center;
+    font-size: 19px;
+    font-weight: 700;
+    line-height: 1.48;
+    letter-spacing: 0.5px;
+    padding-top: 0.5mm;
+  }
+
+  .f-lead {
+    text-align: center;
+    font-size: 9.3px;
+    color: var(--teal-deep);
+    font-weight: 700;
+    line-height: 1.5;
+    margin-bottom: 1.6mm;
+  }
+  .f-checklist { list-style: none; }
+  .f-checklist li {
+    display: flex;
+    align-items: flex-start;
+    gap: 2.2mm;
+    font-size: 9.2px;
+    line-height: 1.45;
+    padding: 1.1mm 1mm;
+  }
+  .chk {
+    width: 3.8mm; height: 3.8mm;
+    background: var(--teal-primary);
+    border-radius: 1.2px;
+    position: relative;
+    flex-shrink: 0;
+    margin-top: 0.3mm;
+  }
+  .chk::after {
+    content: "✓";
+    position: absolute; inset: 0;
+    color: #fff;
+    font-size: 3.1mm;
+    line-height: 3.8mm;
+    text-align: center;
+    font-weight: 700;
+  }
+
+  .f-heroband {
+    position: relative;
+    border-radius: var(--radius-card);
+    overflow: hidden;
+    flex-grow: 1;
+    min-height: 34mm;
+    background:
+      linear-gradient(195deg, rgba(18,46,54,0.12) 0%, rgba(14,38,46,0.62) 100%),
+      url("images/hero.jpg") center 62% / cover no-repeat;
+    display: flex;
+    align-items: flex-end;
+    padding: 4.4mm 5.5mm;
+  }
+  .f-heroband .big {
+    color: #fff;
+    font-family: "Zen Old Mincho", serif;
+    font-size: 14.5px;
+    font-weight: 700;
+    line-height: 1.5;
+    text-shadow: 0 1px 5px rgba(0,0,0,0.4);
+    margin-bottom: 1.4mm;
+  }
+  .f-heroband .small {
+    color: #fff;
+    font-size: 7.3px;
+    line-height: 1.55;
+    opacity: 0.96;
+    text-shadow: 0 1px 4px rgba(0,0,0,0.4);
+  }
+
+  .f-tagcloud { display: flex; flex-wrap: wrap; gap: 2mm; justify-content: center; }
+  .f-tag {
+    background: var(--light-ice);
+    color: var(--teal-deep);
+    font-size: 9.6px;
+    font-weight: 700;
+    padding: 1.6mm 3.6mm;
+    border-radius: var(--radius-pill);
+  }
+
+  .f-teaser {
+    display: flex;
+    align-items: center;
+    gap: 3.2mm;
+  }
+  .f-teaser img {
+    width: 15mm; height: 15mm;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 1.6px solid #fff;
+    box-shadow: 0 1px 4px rgba(0,0,0,0.18);
+    flex-shrink: 0;
+  }
+  .f-teaser .bubble {
+    position: relative;
+    flex: 1;
+    background: var(--light-ice);
+    color: #2c5c68;
+    font-size: 8.1px;
+    font-weight: 700;
+    line-height: 1.5;
+    padding: 2.6mm 3.6mm;
+    border-radius: 10px;
+  }
+  .f-teaser .bubble::before {
+    content: "";
+    position: absolute;
+    left: -2.6mm; top: 50%;
+    transform: translateY(-50%);
+    border: 2.6mm solid transparent;
+    border-right-color: var(--light-ice);
+  }
+
+  .f-flip {
+    text-align: center;
+    background: var(--teal-primary);
+    color: #fff;
+    border-radius: var(--radius-pill);
+    padding: 2.6mm 3mm;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+  }
+
+  /* ===== 裏面 ===== */
+  .f-trustbox {
+    border: 1.5px dashed var(--teal-primary);
+    border-radius: var(--radius-card);
+    padding: 3mm 5mm;
+    background: #fbfeff;
+  }
+  .f-trust-item {
+    display: flex;
+    gap: 2mm;
+    align-items: flex-start;
+    font-size: 9.6px;
+    line-height: 1.5;
+    padding: 1.1mm 0;
+  }
+  .f-trust-item::before { content: "✔"; color: var(--teal-primary); font-weight: 700; flex-shrink: 0; }
+  .f-trust-item b { color: var(--teal-primary); }
+
+  .f-flow { list-style: none; }
+  .f-flow-item {
+    display: flex;
+    gap: 2.5mm;
+    align-items: flex-start;
+    padding: 1.2mm 0;
+  }
+  .f-flow-item .num {
+    width: 5.4mm; height: 5.4mm;
+    line-height: 5.4mm;
+    border-radius: 50%;
+    background: var(--teal-primary);
+    color: #fff;
+    font-size: 8.3px;
+    font-weight: 700;
+    text-align: center;
+    flex-shrink: 0;
+  }
+  .f-flow-item .txt { flex: 1; }
+  .f-flow-item .h { font-size: 9.1px; font-weight: 700; margin-bottom: 0.3mm; }
+  .f-flow-item .h .price { color: var(--teal-primary); }
+  .f-flow-item .p { font-size: 7.9px; color: var(--mid-grey); line-height: 1.4; }
+  .f-flow-divider {
+    text-align: center;
+    font-size: 7.5px;
+    color: var(--teal-primary);
+    font-weight: 700;
+    margin: 0.8mm 0;
+  }
+
+  .f-profile { display: flex; align-items: center; gap: 3.6mm; background: var(--off-white-mist); border-radius: var(--radius-card); padding: 3mm 4.6mm; }
+  .f-profile img { width: 20mm; height: 20mm; border-radius: 50%; object-fit: cover; flex-shrink: 0; border: 2px solid #fff; }
+  .f-profile .name { font-size: 12px; font-weight: 700; margin-bottom: 0.8mm; }
+  .f-profile .name .furigana { font-size: 8px; font-weight: 400; color: var(--mid-grey); }
+  .f-profile .role { font-size: 8px; color: var(--teal-primary); font-weight: 700; margin-bottom: 1.2mm; }
+  .f-profile .bio { font-size: 7.8px; color: var(--mid-grey); line-height: 1.5; }
+  .f-profile .quote {
+    display: inline-block;
+    margin-top: 1.4mm;
+    background: var(--light-ice);
+    color: #2c5c68;
+    font-size: 7.6px;
+    font-weight: 700;
+    padding: 0.9mm 2.4mm;
+    border-radius: var(--radius-pill);
+  }
+
+  .f-cardinfo-cols { display: flex; gap: 5mm; }
+  .f-cardinfo-group { flex: 1; }
+  .f-cardinfo-label {
+    display: inline-block;
+    background: var(--light-ice);
+    color: var(--teal-deep);
+    font-size: 8.2px;
+    font-weight: 700;
+    padding: 0.6mm 2.2mm;
+    border-radius: 4px;
+    margin-bottom: 0.9mm;
+  }
+  .f-cardinfo-list { list-style: none; }
+  .f-cardinfo-list li {
+    font-size: 7.9px;
+    line-height: 1.35;
+    padding: 0.2mm 0;
+    display: flex;
+    gap: 1.3mm;
+  }
+  .f-cardinfo-list li::before { content: "・"; color: var(--teal-primary); font-weight: 700; }
+
+  .f-contact {
+    margin-top: auto;
+    background: var(--teal-primary);
+    border-radius: var(--radius-card);
+    padding: 4mm 5.5mm;
+    display: flex;
+    align-items: center;
+    gap: 4mm;
+    color: #fff;
+  }
+  .qr-pair { display: flex; gap: 2.4mm; flex-shrink: 0; }
+  .qr-item { text-align: center; }
+  .qr-item img { width: 17mm; height: 17mm; background: #fff; padding: 1.1mm; border-radius: 5px; display: block; }
+  .qr-item span { display: block; font-size: 7.2px; margin-top: 0.7mm; opacity: 0.9; }
+  .f-contact-text { flex: 1; }
+  .f-contact-text .cta { font-size: 15.5px; font-weight: 700; margin-bottom: 1.1mm; line-height: 1.35; }
+  .f-contact-text .badge {
+    display: inline-block;
+    background: rgba(255,255,255,0.24);
+    font-size: 7.6px;
+    font-weight: 700;
+    padding: 0.7mm 2.4mm;
+    border-radius: 8px;
+    margin-top: 0.6mm;
+  }
+  .f-contact-text .note { font-size: 8.2px; opacity: 0.94; margin: 1.8mm 0 1.8mm; line-height: 1.45; }
+  .f-contact-text .links { font-size: 8px; opacity: 0.95; line-height: 1.5; }
+
+  .no-print {
+    max-width: 148mm;
+    margin: 0 auto 4mm;
+    text-align: center;
+  }
+  .no-print button {
+    background: var(--teal-primary);
+    color: #fff;
+    border: none;
+    padding: 10px 28px;
+    border-radius: var(--radius-pill);
+    font-size: 14px;
+    font-weight: 700;
+    cursor: pointer;
+    font-family: "Zen Maru Gothic", sans-serif;
+  }
+  @media print {
+    .no-print, .page-label { display: none; }
+    html, body { background: #fff; }
+    .page { margin: 0; box-shadow: none; }
+    .page.front { page-break-after: always; }
+  }
+</style>
+</head>
+<body>
+
+<div class="no-print">
+  <button onclick="window.print()">この画面をPDFとして保存 / 印刷する（両面印刷用・2ページ）</button>
+</div>
+
+<div class="page-label">▼ 表面（おもて）</div>
+<div class="page front">
+
+  <div class="f-topbar">
+    <img class="f-logo" src="images/logo2.png" alt="つくばフリースクール・コンシェルジュ ロゴ">
+    <div class="f-sitename">つくばフリースクール・コンシェルジュ</div>
+  </div>
+
+  <h1 class="f-catch">不登校の親が、一人で<br>迷わないために</h1>
+
+  <div>
+    <div class="f-lead">お子さんに合うフリースクールを<br>探している、あなたへ</div>
+    <div class="f-section-title">こんな気持ち、ありませんか？</div>
+    <ul class="f-checklist">
+      <li><span class="chk"></span>情報が多すぎて、何から始めればいいか分からない</li>
+      <li><span class="chk"></span>見学に行ったけれど、かえって迷いが増えてしまった</li>
+      <li><span class="chk"></span>一人で決めることに、不安や重さを感じている</li>
+      <li><span class="chk"></span>誰かに話を聞いてほしいけれど、相手が見つからない</li>
+    </ul>
+  </div>
+
+  <div class="f-heroband">
+    <div>
+      <div class="big">一歩ずつ、一緒にその悩みを<br>整理します。</div>
+      <div class="small">茨城県つくば市での、フリースクール・オルタナティブスクール選びの「静かな伴走」サービスです。</div>
+    </div>
+  </div>
+
+  <div>
+    <div class="f-section-title">このサービスで「できること」</div>
+    <div class="f-tagcloud">
+      <span class="f-tag">気持ちの整理</span>
+      <span class="f-tag">情報の整理</span>
+      <span class="f-tag">見学・問い合わせのサポート</span>
+      <span class="f-tag">寄り添う伴走</span>
+    </div>
+  </div>
+
+  <div class="f-teaser">
+    <img src="images/profile.jpg" alt="西脇順子の写真">
+    <div class="bubble">2人の子どもを別々のフリースクールに3年間通わせているコンシェルジュが、あなたのお話を伺います</div>
+  </div>
+
+  <div class="f-flip">初回相談30分 無料　▶　くわしくは裏面へ</div>
+</div>
+
+<div class="page-label">▼ 裏面（うら）</div>
+<div class="page back">
+  <div>
+    <div class="f-section-title">安心してご相談ください</div>
+    <div class="f-trustbox">
+      <div class="f-trust-item"><span><b>学校への復帰</b>を強制することはありません</span></div>
+      <div class="f-trust-item"><span><b>特定のスクール</b>へ誘導することはありません</span></div>
+      <div class="f-trust-item"><span>ご相談内容の<b>秘密は守ります</b></span></div>
+      <div class="f-trust-item"><span><b>初回相談（30分）は無料</b>です</span></div>
+    </div>
+  </div>
+
+  <div>
+    <div class="f-section-title">利用の流れ・料金</div>
+    <ul class="f-flow">
+      <li class="f-flow-item">
+        <span class="num">1</span>
+        <div class="txt">
+          <div class="h">公式LINEでご連絡</div>
+          <div class="p">無料でまずは状況整理・お困りごとを伺います</div>
+        </div>
+      </li>
+      <li class="f-flow-item">
+        <span class="num">2</span>
+        <div class="txt">
+          <div class="h">初回無料相談</div>
+          <div class="p">オンライン対面で30分、ご相談頂けます。（電話も可）</div>
+        </div>
+      </li>
+    </ul>
+    <div class="f-flow-divider">＜さらにサポートが必要と感じたら＞</div>
+    <ul class="f-flow">
+      <li class="f-flow-item">
+        <span class="num">3</span>
+        <div class="txt">
+          <div class="h">伴走サポート　<span class="price">5,000円／2週間</span></div>
+          <div class="p">リアル対面またはオンライン対面で1時間の相談＋2週間のLINE相談（24時間返信）</div>
+        </div>
+      </li>
+    </ul>
+  </div>
+
+  <div class="f-profile">
+    <img src="images/profile.jpg" alt="西脇順子の写真">
+    <div>
+      <div class="name">西脇 順子 <span class="furigana">（にしわき じゅんこ）</span></div>
+      <div class="role">つくばフリースクール・コンシェルジュ</div>
+      <div class="bio">元・整理収納アドバイザー。1985年生まれ、つくば市在住。子どもの不登校をきっかけに2023年につくば市へ転居し、現在2人の子どもがそれぞれ別のフリースクールに通っています。フリースクールの情報を集め、見学し、「決める」という行為の重さで心の調子を崩した経験があるからこそ、答えを出す人ではなく、迷いを言葉にして整理する伴走者でありたいと考えています。</div>
+      <div class="quote">「まずはお気軽に、LINEでお声がけくださいね」</div>
+    </div>
+  </div>
+
+  <div>
+    <div class="f-section-title">経歴・活動</div>
+    <div class="f-cardinfo-cols">
+      <div class="f-cardinfo-group">
+        <div class="f-cardinfo-label">現在の活動</div>
+        <ul class="f-cardinfo-list">
+          <li>つくばフリースクール等連携協議会 事務局</li>
+          <li>不登校・多様な学びネットワーク茨城 世話人</li>
+          <li>まなびつくば～多様な学びと育ちの会～ スタッフ</li>
+        </ul>
+      </div>
+      <div class="f-cardinfo-group">
+        <div class="f-cardinfo-label">保護者活動</div>
+        <ul class="f-cardinfo-list">
+          <li>親の会「ほっとサロン鹿島」オンライン担当</li>
+          <li>茨城LD等発達障害親の会「星の子」会員</li>
+          <li>親の会「らくだの会」会員</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <div class="f-contact">
+    <div class="qr-pair">
+      <div class="qr-item">
+        <img src="images/line-qr.png" alt="公式LINEのQRコード">
+        <span>LINE</span>
+      </div>
+      <div class="qr-item">
+        <img src="images/note-qr.png" alt="noteのQRコード">
+        <span>note</span>
+      </div>
+    </div>
+    <div class="f-contact-text">
+      <div class="cta">まずは公式LINEから</div>
+      <span class="badge">土日祝も対応・24時間受付</span>
+      <div class="note">noteで、無料で読める情報を週1更新</div>
+      <div class="links">note：note.com/tfc298<br>Instagram：msproject.tsukuba　X：@tfc298　Web：tfc298.pages.dev</div>
+    </div>
+  </div>
+</div>
+
+</body>
+</html>

@@ -3,18 +3,18 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>つくばフリースクール・コンシェルジュ｜不登校の親が、一人で迷わないために</title>
+<title>つくばフリースクール・コンシェルジュ｜お子さんに合うフリースクールを探している、あなたへ</title>
 <meta name="description" content="茨城県つくば市での、フリースクール・オルタナティブスクール選びの「静かな伴走」サービス。不登校のお子さんを持つ保護者の方の気持ちと情報の整理に寄り添います。初回相談無料。">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://tfc298.pages.dev/">
-<meta property="og:title" content="つくばフリースクール・コンシェルジュ｜不登校の親が、一人で迷わないために">
+<meta property="og:title" content="つくばフリースクール・コンシェルジュ｜お子さんに合うフリースクールを探している、あなたへ">
 <meta property="og:description" content="茨城県つくば市での、フリースクール・オルタナティブスクール選びの「静かな伴走」サービス。初回相談無料。">
 <meta property="og:image" content="https://tfc298.pages.dev/images/ogp.png">
 <meta property="og:site_name" content="つくばフリースクール・コンシェルジュ">
 <meta name="twitter:card" content="summary_large_image">
 <link rel="icon" type="image/png" href="images/logo2.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Zen+Old+Mincho:wght@400;700&family=Zen+Maru+Gothic:wght@400;500;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Zen+Old+Mincho:wght@400;700&family=Zen+Maru+Gothic:wght@400;500;700&family=Zen+Antique&display=swap" rel="stylesheet">
 <style>
   :root {
     --surface-white: #ffffff;
@@ -125,6 +125,7 @@
     flex-shrink: 0;
   }
   .hero-card {
+    position: relative;
     background: rgba(255,255,255,0.92);
     padding: 48px 52px;
     border-radius: var(--radius-card);
@@ -134,14 +135,45 @@
   }
   .hero-card .site-name { font-size: 13px; color: var(--teal-primary); font-weight: 700; letter-spacing: 2px; margin-bottom: 18px; }
   .hero-card h1 {
+    font-family: "Zen Antique", serif;
     font-size: 32px;
-    font-weight: 700;
+    font-weight: 400;
     letter-spacing: 3px;
     line-height: 1.7;
     margin-bottom: 18px;
   }
   .hero-card p { color: var(--mid-grey); font-size: 14.5px; }
   .hero-card .btn { margin-top: 28px; }
+  .hero-card .btn-note { margin-top: 12px; font-size: 11px; color: var(--mid-grey); }
+  .hero-card .btn,
+  .cta .btn,
+  .note-box .btn,
+  .float-cta {
+    position: relative;
+  }
+  .hero-card .btn::after,
+  .cta .btn::after,
+  .note-box .btn::after {
+    content: "";
+    position: absolute;
+    bottom: -22px;
+    right: -26px;
+    width: 100px;
+    height: 80px;
+    background: url("images/leaf.png") no-repeat center / contain;
+    pointer-events: none;
+    z-index: 3;
+  }
+  .float-cta::after {
+    content: "";
+    position: absolute;
+    bottom: -22px;
+    right: -24px;
+    width: 88px;
+    height: 70px;
+    background: url("images/leaf.png") no-repeat center / contain;
+    pointer-events: none;
+  }
   .icon-row {
     display: flex;
     gap: 28px;
@@ -223,6 +255,17 @@
   .card p { font-size: 13.5px; color: var(--mid-grey); text-align: left; }
   .dont .card { background: var(--off-white-mist); box-shadow: none; border: 1px solid #e2e2e2; }
   .dont .card .tag { background: #eee; color: var(--steel-grey); }
+  .privacy-note {
+    max-width: 640px;
+    margin: 40px auto 0;
+    background: var(--light-ice);
+    border: 1.5px dashed var(--teal-primary);
+    border-radius: var(--radius-card);
+    padding: 22px 30px;
+    text-align: center;
+  }
+  .privacy-note p { font-size: 15px; color: #2c5c68; font-weight: 500; line-height: 1.8; }
+  .privacy-note a { color: var(--teal-primary); font-weight: 700; }
   /* 流れ・料金 */
   .steps { max-width: 720px; margin: 0 auto; }
   .step {
@@ -490,7 +533,7 @@
     <img class="logo-img" src="images/logo2.png" alt="">
     <div class="logo">
       つくばフリースクール・コンシェルジュ
-      <small>― 不登校の親が、一人で迷わないために ―</small>
+      <small>― お子さんに合うフリースクールを探している、あなたへ ―</small>
     </div>
   </a>
   <button class="menu-toggle" id="menuToggle" aria-label="メニューを開く" aria-expanded="false"><span></span></button>
@@ -504,9 +547,10 @@
 <div class="hero">
   <div class="hero-card">
     <img class="hero-logo" src="images/logo2.png" alt="つくばフリースクール・コンシェルジュのロゴ">
-    <h1>不登校の親が、<br>一人で迷わないために</h1>
-    <p>茨城県つくば市での、<br>フリースクール・オルタナティブスクール選びの<br>「静かな伴走」サービスです。</p>
+    <h1>お子さんに合う<br>フリースクールを<br>探している、あなたへ</h1>
+    <p>茨城県つくば市での、<br>フリースクール・オルタナティブスクール選びの<br>「静かな伴走」サービスです。<br>２人の子どもを、別々のフリースクールに<br>３年間通わせているコンシェルジュが、お話を伺います。</p>
     <a class="btn" href="https://lin.ee/D98vZ96" target="_blank" rel="noopener">公式LINEで相談する</a>
+    <div class="btn-note">土日祝も対応・24時間受付</div>
   </div>
 </div>
 
@@ -596,23 +640,23 @@
     <div class="cards">
       <div class="card">
         <div class="tag">01</div>
-        <h4>気持ちの整理</h4>
-        <p>あなたの今の状況や気持ちを、ゆっくり一緒に整理します。</p>
+        <h4>気持ちに寄り添う</h4>
+        <p>まとまらない不安や焦りを、そのままお話しください。</p>
       </div>
       <div class="card">
         <div class="tag">02</div>
         <h4>情報の整理</h4>
-        <p>必要に応じて、選択肢や考え方を一緒に整理します。</p>
+        <p>お子さんに合った学びの場の選択肢を整理します。</p>
       </div>
       <div class="card">
         <div class="tag">03</div>
-        <h4>見学・問い合わせのサポート</h4>
-        <p>スクールへの問い合わせ、見学の段取りをお手伝いします。</p>
+        <h4>お問合せ代行</h4>
+        <p>一歩踏み出す際の負担を軽くするお手伝い。</p>
       </div>
       <div class="card">
         <div class="tag">04</div>
-        <h4>寄り添う伴走</h4>
-        <p>迷いや不安を言葉にする過程に、そばで寄り添います。</p>
+        <h4>見学のサポート</h4>
+        <p>見学の際のチェック事項をアドバイス。見学への同行も可。</p>
       </div>
     </div>
   </div>
@@ -644,6 +688,9 @@
         <h4>行政・医療としての対応</h4>
         <p>個人による伴走型サービスです。公的・医療的窓口ではありません。</p>
       </div>
+    </div>
+    <div class="privacy-note reveal">
+      <p>ご相談内容の秘密は守ります。<br>個人情報の扱いについては、<a href="privacy.html">プライバシーポリシー</a>をご覧ください。</p>
     </div>
   </div>
 </section>
@@ -683,6 +730,8 @@
       <li><span class="year">2026〜</span>「つくばフリースクール等連携協議会」事務局を担当
         <span class="sub">フリースクール同士が顔の見える関係を築くための連携・調整を行い、毎月の会合の段取りや情報発信を行っている。</span>
         <a class="ext-link" href="https://298freeschool-kyougikai.my.canva.site/" target="_blank" rel="noopener">協議会サイトはこちら →</a></li>
+      <li><span class="year">現在</span>保護者としても、当事者コミュニティに参加
+        <span class="sub">親の会「ほっとサロン鹿島」オンライン担当／茨城LD等発達障害親の会「星の子」会員／親の会「らくだの会」会員</span></li>
     </ul>
   </div>
 </section>
@@ -758,7 +807,7 @@
 
 <section class="cta" id="contact">
   <h2>一人で悩まず、<br>よければ私に相談してください。</h2>
-  <p>ご相談は公式LINEから受け付けています。</p>
+  <p>ご相談は公式LINEから受け付けています。<br>土日祝も対応・24時間受付です。</p>
   <a class="btn" href="https://lin.ee/D98vZ96" target="_blank" rel="noopener">公式LINEで相談する</a>
 </section>
 
@@ -829,7 +878,7 @@
   var targets = document.querySelectorAll(
     '.section-title, .section-en, .section-lead, .worry, .card, .step, ' +
     '.history > li, .notice-list > li, .profile, .note-box, .icon-item, ' +
-    '.empathy h2, .empathy p, .cta h2, .cta p, .cta .btn'
+    '.empathy h2, .empathy p, .cta h2, .cta p, .cta .btn, .privacy-note'
   );
   if (!('IntersectionObserver' in window)) return;
   var observer = new IntersectionObserver(function (entries) {
